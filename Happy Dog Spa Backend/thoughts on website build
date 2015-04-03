@@ -1,0 +1,18 @@
+Website break down-
+    
+    Login(index) -> Groomers landing page(Profile)
+                    Scheduler, weekly schedule(Schedule)
+                        -> Pet view (pet)
+
+
+
+
+
+(profile) - has info of their commission for the week. Can sort 
+for determined weeks or yearly pay so far.
+
+(schedule) - has a list view of customers for that day, groomer grabs 
+customer when they check dog in and go over instructions.
+schedule has list view of pets and owners and goes to page
+(pet) to view and edit instructions
+
