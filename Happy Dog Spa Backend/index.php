@@ -15,7 +15,7 @@ and open the template in the editor.
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     </head>
     <body>               
-        <div class="container">
+        <div class="container vertical-center-row">
             
                 <img class="img-responsive center-block" src="img/Happy-Dog-Spa-Logo3.png">
             
