@@ -6,7 +6,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Hi, <?PHP $_POST["username"] ?></a>
+                    <a class="navbar-brand" href="#">Hi, <?php
+                    session_start();  
+                    $varValue = $_SESSION['sessName'];
+                    echo $varValue ?></a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
