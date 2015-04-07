@@ -1,21 +1,17 @@
 <?php
 session_start();
 include "includes/header.php";
-
 ?>
 
     <body>
-       
-
         <div class="container">
-            
             
         <?php include "includes\\navbar.php"; 
         include "includes/connection.php";
         ?>
-            
-            <button class="btn btn-primary" id="hide">Claimed</button>
-            <button class="btn btn-primary" id="show">Show All</button>
+        
+        <button class="btn btn-primary" id="hide">Claimed</button>
+        <button class="btn btn-primary" id="show">Show All</button>
        
         <div class="list-group">    
             
@@ -44,7 +40,6 @@ include "includes/header.php";
         while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
             $result = $row['GLDate']->format('Y-m-d H:i:s') ;
             $time = $row['GLInTime']->format('H:i');
-//
 //            echo "<span class=".$row['GLTakenBy']."\"";
 //            echo "<a href=\"petedit.php/?GLPetID=".$row['GLPetID']."&CLLastName=".
 //                    $row['CLLastName']."&PtPetName=".$row['PtPetName'].
@@ -63,38 +58,30 @@ include "includes/header.php";
 //                $row['GLTakenBy'].
 //                "</a></span>";
 //        }
-//        
-        
-        
-            echo"<span class=\"".$row['GLTakenBy']."\">";
-        
-            echo "<a href=\"petedit.php/?GLPetID=".$row['GLPetID']."&CLLastName=".
-                    $row['CLLastName']."&PtPetName=".$row['PtPetName'].
-                    "\"class=\"";
-            if($row['GLRate']>0){
-                echo"list-group-item list-group-item-success text-center";
-            }else{
-                echo"list-group-item list-group-item-info text-center";
-            }
-            echo "\"/>".$row['GLPetID']." "."Customer Last Name: ".
-//            echo "\"class=".$row['GLTakenBy'].">".$row['GLPetID']." "."Customer Last Name: ".
-                $row['CLLastName']." "."Dog's Name: ".$row['PtPetName']." ".
-                $time." ".
-                $row['GLRate']." ".
-                $row['GLBathRate'].
-                $row['GLTakenBy'].
-                "</a>";
-            echo"</span>";
+        echo"<span class=\"".$row['GLTakenBy']."\">";
+
+        echo "<a href=\"petedit.php/?GLPetID=".$row['GLPetID']."&CLLastName=".
+                $row['CLLastName']."&PtPetName=".$row['PtPetName'].
+                "\"class=\"";
+        if($row['GLRate']>0){
+            echo"list-group-item list-group-item-success text-center";
+        }else{
+            echo"list-group-item list-group-item-info text-center";
         }
-        
-        
-        
-        
-        
+        echo "\"/>".$row['GLPetID']." "."Customer Last Name: ".
+//            echo "\"class=".$row['GLTakenBy'].">".$row['GLPetID']." "."Customer Last Name: ".
+            $row['CLLastName']." "."Dog's Name: ".$row['PtPetName']." ".
+            $time." ".
+            $row['GLRate']." ".
+            $row['GLBathRate'].
+            $row['GLTakenBy'].
+            "</a>";
+        echo"</span>";
+        }
         sqlsrv_free_stmt( $stmt);
         ?>
         </div>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
     <script>
 
         //need to setup variable to capture TakenBy on user login.

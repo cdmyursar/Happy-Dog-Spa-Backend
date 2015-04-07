@@ -8,8 +8,9 @@ and open the template in the editor.
     Author     : KC
 */
 body{
-    background:url('/img/abstract-bubble-background.jpg')no-repeat;
-    background-size:100%;
+    background:url('/img/abstract-bubble-background.jpg') no-repeat fixed center;
+    
+   
     background-color: #cccccc;
    opacity: .97;
     
