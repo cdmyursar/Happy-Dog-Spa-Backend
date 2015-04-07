@@ -1,0 +1,30 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 5, 2015, 8:18:10 PM
+    Author     : KC
+*/
+body{
+    background:url('/img/abstract-bubble-background.jpg')no-repeat;
+    background-size:100%;
+    background-color: #cccccc;
+   opacity: .97;
+    
+}
+.navbar-inverse{
+    margin-top: 5px;
+ 
+}
+.navbar-inverse .navbar-brand{
+    color: whitesmoke;
+}
+.navbar-inverse .navbar-nav>li>a{
+    color:  whitesmoke;
+}
+
+.navbar-inverse{
+background-color: rgba(0, 152, 195, 1);
+}

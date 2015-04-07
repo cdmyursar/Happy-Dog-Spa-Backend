@@ -1,9 +1,27 @@
 <?php
+session_start();
+include 'includes/header.php';
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-<?php include "includes\\navbar.html";?>
+?>
+
+    <body>  
+      
+        <div class="container">
+            
+              <?php include "includes\\navbar.php"; 
+              include 'includes/connection.php';
+              $uri = $_SERVER['REQUEST_URI'];
+              echo $uri;
+              $params = $_SERVER['QUERY_STRING'];
+              echo "<br />".$params;
+              
+              echo "<br />".'Hello ' . htmlspecialchars($_GET["GLPetID"]) . '!';
+              echo "<br />".'Hello ' . htmlspecialchars($_GET["CLLastName"]) . '!';
+              
+              ?>
+        
+        </div>
+    </body>
+</html>
+ 
