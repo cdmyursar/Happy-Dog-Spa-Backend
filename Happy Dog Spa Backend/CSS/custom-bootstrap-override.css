@@ -29,3 +29,8 @@ body{
 .navbar-inverse{
 background-color: rgba(0, 152, 195, 1);
 }
+.go-left{
+    text-align: left;
+    display: inline;
+    
+}

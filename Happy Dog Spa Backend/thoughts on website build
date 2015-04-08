@@ -16,3 +16,51 @@ customer when they check dog in and go over instructions.
 schedule has list view of pets and owners and goes to page
 (pet) to view and edit instructions
 
+
+
+old schedule.php list PHP formating 
+
+//            echo "<span class=".$row['GLTakenBy']."\"";
+//            echo "<a href=\"petedit.php/?GLPetID=".$row['GLPetID']."&CLLastName=".
+//                    $row['CLLastName']."&PtPetName=".$row['PtPetName'].
+//                    "\"class=\"";
+//            if($row['GLRate']>0){
+//                echo"list-group-item list-group-item-success";
+//            }else{
+//                echo"list-group-item list-group-item-info";
+//            }
+//            echo "/>".$row['GLTakenBy']."></span>".$row['GLPetID']." "."Customer Last Name: ".
+////            echo "\"class=".$row['GLTakenBy'].">".$row['GLPetID']." "."Customer Last Name: ".
+//                $row['CLLastName']." "."Dog's Name: ".$row['PtPetName']." ".
+//                $time." ".
+//                $row['GLRate']." ".
+//                $row['GLBathRate'].
+//                $row['GLTakenBy'].
+//                "</a></span>";
+//        }
+
+
+
+html code in schedule.php
+
+<!--        <div class="list-group">    
+            <a href="#" class="list-group-item list-group-item-success text-center ">
+                <div class="row">
+  <div class="col-xs-2 text-left">10:00</div>
+  <div class="col-xs-4 text-center"><b>Yoda <i>Jargowsky</i></b></div>
+  <div class="col-xs-6 text-right">
+     Only 1 of the Checked-In and Checked-out labels will show, need if statement
+      <span class="label label-success glyphicon glyphicon-save">Checked-In</span> 
+      <span class="label label-warning glyphicon glyphicon-save">Checked-Out</span>
+      <span class="label label-success glyphicon glyphicon-ok">Completed</span> 
+      <span class="label label-warning glyphicon glyphicon-earphone">Called</span>
+      
+      <span class="badge NIQ"><style>.NIQ {background-color:blue}</style>NIQ</span>
+  </div>
+</div>
+
+            </a>-->
+<!--            <a href="#" class="list-group-item list-group-item-success text-center"> <h3 class="go-left">Yoda</h3> Pug B&B Groom 
+                <span class="label label-success glyphicon glyphicon-user">Completed</span>
+                <span class="label label-warning">called on</span>
+                </a>-->

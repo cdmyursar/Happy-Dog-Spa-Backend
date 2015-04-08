@@ -10,15 +10,13 @@ include "includes/header.php";
         include "includes/connection.php";
         ?>
         
-        <button class="btn btn-primary" id="hide">Claimed</button>
+        <button class="btn btn-primary" id="hide">My Grooms</button>
         <button class="btn btn-primary" id="show">Show All</button>
-       
-        <div class="list-group">    
-            
-        <?php
-        $sql = "Select GLPetID, GLDescription, GLDate, CLLastName, PtPetName, "
+        
+<?php
+        $sql = "Select GLPetID,  GLDate, CLLastName, PtPetName, "
             . "GLInTime, GLRate, "
-            . "GLTakenBy, GLBathRate, GLOthersRate, GLNailsRate "
+            . "GLTakenBy, GLBathRate, GLOthersRate, GLNailsRate, PtBreed "
             . "From GroomingLog "
             . "INNER JOIN Pets "
             . "ON GroomingLog.GLPetID = Pets.PtSeq "
@@ -26,6 +24,7 @@ include "includes/header.php";
             . "ON Pets.PtOwnerCode = Clients.CLSeq "
             . "WHERE GLDate='2014-03-31'"
             . "ORDER BY GLInTime";
+        
         
         //       sql statement origional
 //                  $sql = "SELECT GLPetID, GLDescription, GLDate, GLInTime, GLRate, "
@@ -37,50 +36,37 @@ include "includes/header.php";
         if( $stmt === false) {
             die( print_r( sqlsrv_errors(), true) );
         }
+    echo"<div class=\"list-group\">";   
         while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
             $result = $row['GLDate']->format('Y-m-d H:i:s') ;
             $time = $row['GLInTime']->format('H:i');
-//            echo "<span class=".$row['GLTakenBy']."\"";
-//            echo "<a href=\"petedit.php/?GLPetID=".$row['GLPetID']."&CLLastName=".
-//                    $row['CLLastName']."&PtPetName=".$row['PtPetName'].
-//                    "\"class=\"";
-//            if($row['GLRate']>0){
-//                echo"list-group-item list-group-item-success";
-//            }else{
-//                echo"list-group-item list-group-item-info";
-//            }
-//            echo "/>".$row['GLTakenBy']."></span>".$row['GLPetID']." "."Customer Last Name: ".
-////            echo "\"class=".$row['GLTakenBy'].">".$row['GLPetID']." "."Customer Last Name: ".
-//                $row['CLLastName']." "."Dog's Name: ".$row['PtPetName']." ".
-//                $time." ".
-//                $row['GLRate']." ".
-//                $row['GLBathRate'].
-//                $row['GLTakenBy'].
-//                "</a></span>";
-//        }
-        echo"<span class=\"".$row['GLTakenBy']."\">";
+            
+    echo "<a href=\"petedit.php/?GLPetID=".$row['GLPetID']."&CLLastName=".
+        $row['CLLastName']."&PtPetName=".$row['PtPetName'].
+        "\" class=\"list-group-item list-group-item-success text-center \">";
 
-        echo "<a href=\"petedit.php/?GLPetID=".$row['GLPetID']."&CLLastName=".
-                $row['CLLastName']."&PtPetName=".$row['PtPetName'].
-                "\"class=\"";
-        if($row['GLRate']>0){
-            echo"list-group-item list-group-item-success text-center";
-        }else{
-            echo"list-group-item list-group-item-info text-center";
-        }
-        echo "\"/>".$row['GLPetID']." "."Customer Last Name: ".
-//            echo "\"class=".$row['GLTakenBy'].">".$row['GLPetID']." "."Customer Last Name: ".
-            $row['CLLastName']." "."Dog's Name: ".$row['PtPetName']." ".
-            $time." ".
-            $row['GLRate']." ".
-            $row['GLBathRate'].
-            $row['GLTakenBy'].
-            "</a>";
-        echo"</span>";
+                echo"<div class=\"row\">";
+                    echo"<div class=\"col-xs-2 text-left\">".$time."</div>";
+                    echo"<div class=\"col-xs-4 text-center\"><b>".$row['PtPetName']."</b> <i>".$row['CLLastName']."</i> ".$row['PtBreed']."</div>";
+                    echo"<div class=\"col-xs-6 text-right\">".
+                        "<span class=\"label label-warning glyphicon glyphicon-save\">Checked-In</span>".
+                        "<span class=\"badge ".$row['GLTakenBy']."\">".
+                            "<style>.NIQ {background-color:blue}</style>".$row['GLTakenBy'];
+                            if($row['GLTakenBy']!=""){
+                                echo $row['GLTakenBy'];
+                            }else{
+                                echo "N/A";
+                            }
+                        echo"</span> ";
+                        
+                    echo"</div>";
+                
+        echo"</div>";   
+        echo"</a>";
         }
         sqlsrv_free_stmt( $stmt);
         ?>
-        </div>
+     
     
     <script>
 
@@ -88,10 +74,10 @@ include "includes/header.php";
 
     $(document).ready(function(){
         $("#hide").click(function(){
-            $("span:not(.NIQ)").hide();
+            $("span:not(.NIQ):not(.glyphicon-user):not(.glyphicon-th-list").hide();
         });
         $("#show").click(function(){
-            $("span:not(.NIQ)").show();
+            $("span").show();
         });
     });
     </script>
