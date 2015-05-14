@@ -12,8 +12,8 @@
 
     if($conn == true)
     {
-        echo "connected to database with ".$username. " ".$userpassword;
+      //  echo "<span class=\"bg-primary\"> connected to database with ".$username. " ".$userpassword."</span>";
     }else{
-        echo "could not connect";
+      //  echo "could not connect";
     }
     ?>
