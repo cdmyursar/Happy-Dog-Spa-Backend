@@ -39,19 +39,19 @@ include "includes/header.php";
     echo"<div class=\"list-group\">";   
         while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
             $result = $row['GLDate']->format('Y-m-d H:i:s') ;
-            $time = $row['GLInTime']->format('H:i');
-            
-    echo "<a href=\"petedit.php/?GLPetID=".$row['GLPetID']."&CLLastName=".
+            $time = $row['GLInTime']->format('h:i');
+         
+    echo "<span class=".$row['GLTakenBy']."><a href=\"petedit.php/?GLPetID=".$row['GLPetID']."&CLLastName=".
         $row['CLLastName']."&PtPetName=".$row['PtPetName'].
         "\" class=\"list-group-item list-group-item-success text-center \">";
 
                 echo"<div class=\"row\">";
                     echo"<div class=\"col-xs-2 text-left\">".$time."</div>";
-                    echo"<div class=\"col-xs-4 text-center\"><b>".$row['PtPetName']."</b> <i>".$row['CLLastName']."</i> ".$row['PtBreed']."</div>";
+                    echo"<div class=\"col-xs-4 text-center\"><b>".$row['PtPetName']."</b> <i>".$row['CLLastName']."</i>   ".$row['PtBreed']."</div>";
                     echo"<div class=\"col-xs-6 text-right\">".
                         "<span class=\"label label-warning glyphicon glyphicon-save\">Checked-In</span>".
                         "<span class=\"badge ".$row['GLTakenBy']."\">".
-                            "<style>.NIQ {background-color:blue}</style>".$row['GLTakenBy'];
+                            "<style>.NIQ {background-color:blue}</style>";
                             if($row['GLTakenBy']!=""){
                                 echo $row['GLTakenBy'];
                             }else{
@@ -62,7 +62,8 @@ include "includes/header.php";
                     echo"</div>";
                 
         echo"</div>";   
-        echo"</a>";
+        echo"</a></span>";
+        
         }
         sqlsrv_free_stmt( $stmt);
         ?>
@@ -74,7 +75,7 @@ include "includes/header.php";
 
     $(document).ready(function(){
         $("#hide").click(function(){
-            $("span:not(.NIQ):not(.glyphicon-user):not(.glyphicon-th-list").hide();
+            $("span:not(.NIQ):not(.glyphicon-user):not(.glyphicon-th-list):not(.label)").hide();
         });
         $("#show").click(function(){
             $("span").show();
