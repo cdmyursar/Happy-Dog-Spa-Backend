@@ -10,6 +10,8 @@ include 'includes/JqueryFormControl.js'
     include "includes/navbar.php"; 
     include 'includes/connection.php';
     include 'petVariables.php';
+    
+    
     ?>
     <div class="jumbotron">
         
@@ -48,6 +50,7 @@ include 'includes/JqueryFormControl.js'
         </div>
         
         <div class="row topPadding">
+            <form role="form" method="post" action="k.php">
             <div class="form-group">
             <div class="col-xs-4">
                 <div class="checkbox" >
@@ -73,19 +76,25 @@ include 'includes/JqueryFormControl.js'
                     <label><input type="checkbox" value="">De-skunk</label>
                 </div>
             </div>
-              
-            
+            </div>  
+            <div class="form-group">
             <div class="col-xs-8 text-center">
                 
                     <label for="comment">Description:</label>
-                    <textarea class="form-control" rows="7" id="comment"><?php echo $groomDescription; ?></textarea>
+                    <textarea class="form-control" rows="7" id="comment"><?php echo $groomDescription; echo "      "; echo $petID; echo $calledOn; ?></textarea>
                 
             </div>
+                <div class="col-xs-6">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+                <div class="col-xs-6"></div>
             </div>
+            </form>
             
         </div>
         
-        <a href="\contract.php" class="btn btn-primary" role="button">Contract</a>
+        <a href="\contract.php" class="btn btn-primary " role="button">Contract</a>
+        
                
     </div>  
 </div>

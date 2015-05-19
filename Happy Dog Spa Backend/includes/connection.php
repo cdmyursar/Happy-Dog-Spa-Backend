@@ -14,6 +14,6 @@
     {
       //  echo "<span class=\"bg-primary\"> connected to database with ".$username. " ".$userpassword."</span>";
     }else{
-      //  echo "could not connect";
+        echo "<h1> could not connect </h1>";
     }
     ?>

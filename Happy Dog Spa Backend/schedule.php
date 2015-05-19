@@ -6,7 +6,7 @@ include "includes/header.php";
     <body>
         <div class="container">
             
-        <?php include "includes\\navbar.php"; 
+        <?php include "includes/navbar.php"; 
         include "includes/connection.php";
         ?>
         
@@ -40,11 +40,19 @@ include "includes/header.php";
         while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
             $result = $row['GLDate']->format('Y-m-d H:i:s') ;
             $time = $row['GLInTime']->format('h:i');
-         
-    echo "<span class=".$row['GLTakenBy']."><a href=\"petedit.php/?GLPetID=".$row['GLPetID']."&CLLastName=".
-        $row['CLLastName']."&PtPetName=".$row['PtPetName'].
+  
+// origional code, trying to pass petid with POST METHOD  , if i use a form control dont
+// forget to remove the anchor </a> from bottom or put it back if i add it back.          
+//    echo "<span class=".$row['GLTakenBy']."><a href=\"petedit.php/?GLPetID=".$row['GLPetID']."&CLLastName=".
+//        $row['CLLastName']."&PtPetName=".$row['PtPetName'].
+//        "\" class=\"list-group-item list-group-item-success text-center \">";    
+            
+            
+            
+    echo "<span class=".$row['GLTakenBy']."><a href=\"petedit.php/".
         "\" class=\"list-group-item list-group-item-success text-center \">";
 
+    
                 echo"<div class=\"row\">";
                     echo"<div class=\"col-xs-2 text-left\">".$time."</div>";
                     echo"<div class=\"col-xs-4 text-center\"><b>".$row['PtPetName']."</b> <i>".$row['CLLastName']."</i>   ".$row['PtBreed']."</div>";

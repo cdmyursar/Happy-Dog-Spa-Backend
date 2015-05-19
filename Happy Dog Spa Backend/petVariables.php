@@ -1,4 +1,6 @@
 <?php
+
+      
   //Pet variables
         //Pet information
         $petID=
@@ -10,9 +12,10 @@
         //Pet variables - Aka - boolean for bath or groom, checkin time and out, called on etc.
         $glGroom=
         $glBath=  
-        $glCheckIn=        
-        $glCheckOut=
+        $checkInTime=        
+        $checkOutTime=
         $calledTime=
+        $calledOn=
                 
                 //NEED TO CREATE A FIELD FOR CHECKIN TIME AND CALLED ON
                 
@@ -42,13 +45,14 @@
         
          $sql = "Select GLPetID, GLBath, GLGroom, GLDate, CLLastName, CLFirstName, PtPetName, GLDescription, "
             . "GLInTime, GLRate, CLAddress1, CLPhone1, CLPhone2, CLPhone3, CLCity, CLState, CLZip, "
-            . "GLTakenBy, GLBathRate, GLOthersRate, GLNailsRate, PtBreed, ClEmail "
+            . "GLTakenBy, GLBathRate, GLOthersRate, GLNailsRate, PtBreed, ClEmail,"
+            . "CheckInTime, CheckOutTime, CalledOn, CalledTime  "
             . "From GroomingLog "
             . "INNER JOIN Pets "
             . "ON GroomingLog.GLPetID = Pets.PtSeq "
             . "INNER JOIN Clients "
             . "ON Pets.PtOwnerCode = Clients.CLSeq "
-            . "WHERE GLPetID='".htmlspecialchars($_GET["GLPetID"])."'";
+            . "WHERE GLPetID=''";
 
         $stmt = sqlsrv_query($conn,$sql);
         if( $stmt === false) {
@@ -83,8 +87,11 @@
         $state = $row['CLState'];
         $zipcode = $row['CLZip'];
         
-        //$glCheckIn = $row['GLCheckIn'];     NEED TO CREWATE THESE IN DATABASE
-        //$glCheckOut = $row['GLCheckOut'];    NEED TO CREWATE THESE IN DATABASE
+        $checkInTime = $row['CheckInTime'];     
+        $checkOutTime = $row['CheckOutTime'];
+        $calledTime = $row['CalledTime'];
+        $calledOn = $row ['CalledOn'];
+        
         
          }
 //        $uri = $_SERVER['REQUEST_URI'];
