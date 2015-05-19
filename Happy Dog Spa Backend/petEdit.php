@@ -85,7 +85,7 @@ include 'includes/JqueryFormControl.js'
             
         </div>
         
-            
+        <a href="\contract.php" class="btn btn-primary" role="button">Contract</a>
                
     </div>  
 </div>

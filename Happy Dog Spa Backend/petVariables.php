@@ -12,6 +12,7 @@
         $glBath=  
         $glCheckIn=        
         $glCheckOut=
+        $calledTime=
                 
                 //NEED TO CREATE A FIELD FOR CHECKIN TIME AND CALLED ON
                 
