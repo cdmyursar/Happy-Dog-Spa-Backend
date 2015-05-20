@@ -50,7 +50,7 @@ include 'includes/JqueryFormControl.js'
         </div>
         
         <div class="row topPadding">
-            <form role="form" method="post" action="k.php">
+            <form role="form" method="post" action="/update.php">
             <div class="form-group">
             <div class="col-xs-4">
                 <div class="checkbox" >
@@ -81,7 +81,9 @@ include 'includes/JqueryFormControl.js'
             <div class="col-xs-8 text-center">
                 
                     <label for="comment">Description:</label>
-                    <textarea class="form-control" rows="7" id="comment"><?php echo $groomDescription; echo "      "; echo $petID; echo $calledOn; ?></textarea>
+                    <textarea class="form-control" rows="7" id="groom" name="groom">
+                        <?php echo $groomDescription; 
+                        echo "      "; echo $petID; echo $calledOn; ?></textarea>
                 
             </div>
                 <div class="col-xs-6">

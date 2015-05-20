@@ -49,14 +49,20 @@ include "includes/header.php";
             
             
             
-    echo "<span class=".$row['GLTakenBy']."><a href=\"petedit.php/".
-        "\" class=\"list-group-item list-group-item-success text-center \">";
-
-    
+   
+?>
+    <span class="<?php echo $row['GLTakenBy'];?>"><span class="list-group-item list-group-item-success text-center">
+            <form role="form" method="POST" action="petEdit.php">
+    <?php 
+        
                 echo"<div class=\"row\">";
-                    echo"<div class=\"col-xs-2 text-left\">".$time."</div>";
+                    echo"<div class=\"col-xs-2 text-left\">".$time."</div>"; ?>
+                <div class="col-xs-2 text-left"><input type="text" size="4" value="<?php echo $row['GLPetID'] ?>"name="petID">
+                <button type="submit" class="btn-primary"><?php echo $row['GLPetID'] ?>
+                </button></div>
+                    <?php
                     echo"<div class=\"col-xs-4 text-center\"><b>".$row['PtPetName']."</b> <i>".$row['CLLastName']."</i>   ".$row['PtBreed']."</div>";
-                    echo"<div class=\"col-xs-6 text-right\">".
+                    echo"<div class=\"col-xs-4 text-right\">".
                         "<span class=\"label label-warning glyphicon glyphicon-save\">Checked-In</span>".
                         "<span class=\"badge ".$row['GLTakenBy']."\">".
                             "<style>.NIQ {background-color:blue}</style>";
@@ -65,7 +71,7 @@ include "includes/header.php";
                             }else{
                                 echo "N/A";
                             }
-                        echo"</span> ";
+                        echo"</form></span></span> ";
                         
                     echo"</div>";
                 

@@ -1,6 +1,6 @@
 <?php
 
-      
+     
   //Pet variables
         //Pet information
         $petID=
@@ -52,7 +52,7 @@
             . "ON GroomingLog.GLPetID = Pets.PtSeq "
             . "INNER JOIN Clients "
             . "ON Pets.PtOwnerCode = Clients.CLSeq "
-            . "WHERE GLPetID=''";
+            . "WHERE GLPetID='".$_POST['petID']."'";
 
         $stmt = sqlsrv_query($conn,$sql);
         if( $stmt === false) {
